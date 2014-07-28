@@ -108,8 +108,11 @@ def run_server():
     parser.add_option('-d', '--debug', action='store_true',
                       help='Run in debug mode [default: %default]',
                       default=False)
+    parser.add_option('-t', '--threaded', action='store_true',
+                      help='Run in threaded mode [default: %default]',
+                      default=False)
 
     (options, args) = parser.parse_args()
     global sacct
     sacct = options.sacct
-    app.run(host=options.host, debug=options.debug, port=options.port)
+    app.run(host=options.host, debug=options.debug, port=options.port, threaded=options.threaded)
